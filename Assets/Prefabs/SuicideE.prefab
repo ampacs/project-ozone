@@ -118,6 +118,15 @@ TrailRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -0.7398991
+        outSlope: -0.7398991
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.15172412
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -244,6 +253,15 @@ TrailRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -0.7398991
+        outSlope: -0.7398991
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.15172412
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -339,10 +357,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 67e43edd3edacb1498817308d783b493, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 67e43edd3edacb1498817308d783b493, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 67e43edd3edacb1498817308d783b493, type: 3}
       propertyPath: m_Materials.Array.data[0]
