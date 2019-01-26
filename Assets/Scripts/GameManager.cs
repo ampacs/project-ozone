@@ -15,12 +15,24 @@ public class GameManager : MonoBehaviour {
     public Transform[] facilitiesSpawnPoints;
     public GameObject[] facilities;
     public GameObject planet;
+    public GameObject currentPowerup;
 
     bool[] _focusedFacility;
     Facility[] _facilities;
 
     public void AddEnergy(float energy) {
         this.energy += energy;
+    }
+
+    public void AddPowerup(GameObject powerup) {
+        currentPowerup = powerup;
+        GameObject powerupTarget = GameObject.FindWithTag("PowerupTarget");
+        currentPowerup.transform.parent = powerupTarget.transform;
+        currentPowerup.transform.position = powerupTarget.transform.position;
+    }
+
+    public void RemovePowerup() {
+        Destroy(currentPowerup);
     }
 
     public void LoadScene(string sceneName) {
@@ -53,6 +65,16 @@ public class GameManager : MonoBehaviour {
                 for (int i = 0; i < spawnPoints.Length; i++) {
                     facilitiesSpawnPoints[i] = spawnPoints[i].transform;
                 }
+
+                int f = 0;
+                for (int i = 0; i < FacilityTypeManager.current.facilities.Length; i++) {
+                    for (int j = 0; f < facilities.Length && j < FacilityTypeManager.current.facilityAmount[i]; f++, j++) {
+                        facilities[f] = Instantiate(FacilityTypeManager.current.facilities[i],
+                                                    facilitiesSpawnPoints[f].position,
+                                                    Quaternion.LookRotation(facilitiesSpawnPoints[f].transform.forward),
+                                                    facilitiesSpawnPoints[f]);
+                    }
+                }
             }
             if (numberNonSupportFacilities < 0) {
                 _focusedFacility = new bool[facilities.Length];
@@ -71,6 +93,11 @@ public class GameManager : MonoBehaviour {
             for (int i = 0; i < facilities.Length; i++) {
                 if (_focusedFacility[i])
                     _facilities[i].AddEnergy(energy/numberFocusedFacilities);
+            }
+            energy = 0f;
+
+            if (Input.GetButtonDown("Jump") && currentPowerup != null) {
+                currentPowerup.GetComponent<Upgrade>().Use();
             }
         }
     }

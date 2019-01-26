@@ -9,11 +9,6 @@ public class UpgradeEnergy : Upgrade {
     // Start is called before the first frame update
     void Start() {
         GameManager.current.AddEnergy(energy);
-    }
-
-    void FixedUpdate() {
-        if (Time.fixedTime > spawnMoment + lifetime) {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject, lifetime);
     }
 }

@@ -2,17 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeLaser : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class UpgradeLaser : Upgrade {
+
+    public GameObject collectionCollider;
+    public GameObject destructionCollider;
+
+    public override void Use() {
+        if (used) return;
+        destructionCollider.SetActive(true);
+        Destroy(gameObject, useTime);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    protected override void Update() {
+        base.Update();
+        if (Time.time > spawnMoment + lifetime) {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if (!collected && GameManager.current.currentPowerup == null) {
+            Debug.Log("Here!");
+            collected = true;
+            GameManager.current.AddPowerup(gameObject);
+            collectionCollider.SetActive(false);
+        } else if (other.gameObject.tag == "Hazard") {
+            Destroy(other.gameObject);
+        }
     }
 }

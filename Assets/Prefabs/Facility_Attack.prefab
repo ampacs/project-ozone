@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Laser Beam
   description: 
+  type: 0
   activateUpgradeOnSpawn: 0
   health: 100
   maxHealth: 100
@@ -53,7 +54,8 @@ MonoBehaviour:
   maxEnergy: 100
   regenerationTime: 10
   upgradeSpawnPeriod: -1
-  upgrade: {fileID: 0}
+  upgradeTargetDistance: 1.5
+  upgrade: {fileID: 1123403793075456501, guid: 8fdd5b5606837b4498304a31244a77ef, type: 3}
 --- !u!1001 &2296368142442410108
 PrefabInstance:
   m_ObjectHideFlags: 0

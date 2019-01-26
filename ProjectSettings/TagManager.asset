@@ -7,6 +7,8 @@ TagManager:
   - UICamera
   - Planet
   - FacilitySpawnPoint
+  - PowerupTarget
+  - Hazard
   layers:
   - Default
   - TransparentFX
@@ -17,10 +19,10 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Hazards
+  - Upgrade
+  - Powerup
   - 
   - 
   - 
