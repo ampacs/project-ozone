@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8438127810710950777}
   - component: {fileID: 8438127810710950774}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sphere Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8438127810881353414}
   - component: {fileID: 8438127810881353415}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Planet
   m_TagString: Planet
   m_Icon: {fileID: 0}

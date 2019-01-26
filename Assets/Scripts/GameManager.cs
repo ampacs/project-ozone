@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -84,8 +85,8 @@ public class GameManager : MonoBehaviour {
                     _facilities[i] = facilities[i].GetComponent<Facility>();
                     if (_facilities[i].type != Facility.Type.Support) {
                         numberNonSupportFacilities++;
+                        _focusedFacility[i] = true;
                     }
-                    _focusedFacility[i] = true;
                 }
                 numberFocusedFacilities = numberNonSupportFacilities;
             }

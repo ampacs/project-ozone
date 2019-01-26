@@ -87,9 +87,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7181300934082425344}
   - component: {fileID: 3661880833094025007}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Facility_SupportClean
-  m_TagString: Untagged
+  m_TagString: Facility
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,12 +123,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Clean Energy Station
   description: 
-  type: 2
-  activateUpgradeOnSpawn: 1
   health: 100
   maxHealth: 100
+  destructionTime: 0
+  type: 2
+  activateUpgradeOnSpawn: 1
   energy: -1
   maxEnergy: -1
   regenerationTime: 10
   upgradeSpawnPeriod: 0.1
+  upgradeTargetDistance: 1.5
   upgrade: {fileID: 4295060815593828728, guid: db1777a6aef2a9e4eaafcd65d5a94cf1, type: 3}

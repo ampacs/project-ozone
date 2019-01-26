@@ -2,21 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Facility : MonoBehaviour {
+public class Facility : Damageable {
 
     public enum Type {
         Offensive, Defensive, Support
     }
-    public new string name;
-    public string description;
     public Type type;
 
     public bool activateUpgradeOnSpawn;
-
-    public float health;
-    public float maxHealth;
     public float energy;
     public float maxEnergy;
+    public bool regenerating;
     public float regenerationTime;
 
     public float upgradeSpawnPeriod;
@@ -24,7 +20,13 @@ public class Facility : MonoBehaviour {
 
     public GameObject upgrade;
 
-    float lastUpgradeSpawnMoment;
+    float _lastUpgradeSpawnMoment;
+    float _destructionMoment = -100f;
+
+    public override void Kill() {
+        _destructionMoment = Time.time;
+        regenerating = true;
+    }
 
     public void AddEnergy (float energy) {
         this.energy += energy;
@@ -45,13 +47,18 @@ public class Facility : MonoBehaviour {
     }
 
     void ManageSupportFacility () {
-        if (Time.fixedTime > lastUpgradeSpawnMoment + upgradeSpawnPeriod) {
-            lastUpgradeSpawnMoment = Time.fixedTime;
-            GameObject instantiated = SpawnUpgrade(transform.position, transform.rotation, null, transform.forward * upgradeTargetDistance);
+        if (Time.fixedTime > _lastUpgradeSpawnMoment + upgradeSpawnPeriod) {
+            _lastUpgradeSpawnMoment = Time.fixedTime;
+            SpawnUpgrade(transform.position, transform.rotation, null, transform.forward * upgradeTargetDistance);
         }
     }
 
     void FixedUpdate() {
+        if (Time.time < _destructionMoment + regenerationTime) {
+            health = Mathf.RoundToInt((Time.time - _destructionMoment)/regenerationTime * maxHealth);
+            return;
+        }
+        regenerating = false;
         switch (type) {
             case Type.Defensive: break;
             case Type.Offensive:

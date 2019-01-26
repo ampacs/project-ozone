@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Upgrade : MonoBehaviour {
+public class Upgrade : BaseObject {
 
     public enum Type {
-        Energy, Other
+        Energy, Shield, Laser
     }
-
-    public new string name;
-    public string description;
     public Type type;
+    public int level = 1;
+    public int maxLevel = 1;
+    public int damage;
     public float useTime;
     public float lifetime;
     public Vector3 startPosition;
@@ -26,7 +26,9 @@ public class Upgrade : MonoBehaviour {
         spawnMoment = Time.time;
     }
 
-    public virtual void Use() {}
+    public virtual void Use() {
+        used = true;
+    }
 
     void Awake() {
         spawnMoment = Time.time;

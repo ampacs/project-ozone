@@ -9,6 +9,7 @@ public class KeepPowerupClose : MonoBehaviour {
             Transform powerup = transform.GetChild(0);
             powerup.gameObject.GetComponent<Upgrade>().ResetLifetime();
             powerup.position = transform.position;
+            powerup.rotation = Quaternion.LookRotation(transform.forward);
         }
     }
 }

@@ -9,6 +9,7 @@ TagManager:
   - FacilitySpawnPoint
   - PowerupTarget
   - Hazard
+  - Facility
   layers:
   - Default
   - TransparentFX
@@ -23,8 +24,8 @@ TagManager:
   - Hazards
   - Upgrade
   - Powerup
-  - 
-  - 
+  - Planet
+  - Facility
   - 
   - 
   - 

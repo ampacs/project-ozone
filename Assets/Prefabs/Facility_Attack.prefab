@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6966799380122556698}
   - component: {fileID: 725865010306677795}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Facility_Attack
-  m_TagString: Untagged
+  m_TagString: Facility
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,10 +46,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Laser Beam
   description: 
-  type: 0
-  activateUpgradeOnSpawn: 0
   health: 100
   maxHealth: 100
+  destructionTime: 0
+  type: 0
+  activateUpgradeOnSpawn: 0
   energy: 0
   maxEnergy: 100
   regenerationTime: 10
@@ -63,6 +64,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6966799380122556698}
     m_Modifications:
+    - target: {fileID: 100000, guid: 47d81730c6d3e994a80413f5fba0a261, type: 3}
+      propertyPath: m_Name
+      value: Mesh
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 47d81730c6d3e994a80413f5fba0a261, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -118,10 +123,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 47d81730c6d3e994a80413f5fba0a261, type: 3}
       propertyPath: m_LocalScale.z
       value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 47d81730c6d3e994a80413f5fba0a261, type: 3}
-      propertyPath: m_Name
-      value: Mesh
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 47d81730c6d3e994a80413f5fba0a261, type: 3}
       propertyPath: m_Materials.Array.data[0]

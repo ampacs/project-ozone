@@ -87,9 +87,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7485613380074521494}
   - component: {fileID: 7402990969166963344}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Facility_Defense
-  m_TagString: Untagged
+  m_TagString: Facility
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,12 +123,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Shield Extension
   description: 
-  type: 1
-  activateUpgradeOnSpawn: 0
+  damage: 0
   health: 100
   maxHealth: 100
+  destructionTime: 0
+  type: 1
+  activateUpgradeOnSpawn: 0
   energy: 0
   maxEnergy: 100
+  regenerating: 0
   regenerationTime: 10
   upgradeSpawnPeriod: -1
-  upgrade: {fileID: 0}
+  upgradeTargetDistance: 1.5
+  upgrade: {fileID: 6986831933305569252, guid: d5d5ebc2d8c54e14a9dbb72420e1bee1, type: 3}

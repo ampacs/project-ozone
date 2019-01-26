@@ -11,6 +11,7 @@ public class UpgradeLaser : Upgrade {
         if (used) return;
         destructionCollider.SetActive(true);
         Destroy(gameObject, useTime);
+        base.Use();
     }
 
     protected override void Update() {
@@ -22,12 +23,11 @@ public class UpgradeLaser : Upgrade {
 
     void OnTriggerEnter(Collider other) {
         if (!collected && GameManager.current.currentPowerup == null) {
-            Debug.Log("Here!");
             collected = true;
             GameManager.current.AddPowerup(gameObject);
             collectionCollider.SetActive(false);
         } else if (other.gameObject.tag == "Hazard") {
-            Destroy(other.gameObject);
+            other.GetComponent<Damageable>().Damage(damage);
         }
     }
 }
