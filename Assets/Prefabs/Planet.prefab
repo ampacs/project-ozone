@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6874627180617684868}
   m_Layer: 0
-  m_Name: Facility (1)
-  m_TagString: Untagged
+  m_Name: Facility Spawn Point (1)
+  m_TagString: FacilitySpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40,8 +40,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8464991957752645335}
   m_Layer: 0
-  m_Name: Facility (2)
-  m_TagString: Untagged
+  m_Name: Facility Spawn Point (2)
+  m_TagString: FacilitySpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,8 +70,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6921030391511142908}
   m_Layer: 0
-  m_Name: Facility (3)
-  m_TagString: Untagged
+  m_Name: Facility Spawn Point (3)
+  m_TagString: FacilitySpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,8 +100,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2289205580141459575}
   m_Layer: 0
-  m_Name: Facility (4)
-  m_TagString: Untagged
+  m_Name: Facility Spawn Point (4)
+  m_TagString: FacilitySpawnPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

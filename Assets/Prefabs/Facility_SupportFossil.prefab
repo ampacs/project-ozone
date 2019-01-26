@@ -86,8 +86,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1657872265600157956}
+  - component: {fileID: 8873900556920175153}
   m_Layer: 0
-  m_Name: Facility_Support
+  m_Name: Facility_SupportFossil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,3 +109,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8873900556920175153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3525239697308641172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df3300e163169843965c6bc9666a0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Fossil Energy Station
+  description: 
+  type: 2
+  activateUpgradeOnSpawn: 1
+  health: 100
+  maxHealth: 100
+  energy: -1
+  maxEnergy: -1
+  regenerationTime: 10
+  upgradeSpawnPeriod: 0.02
+  upgrade: {fileID: 4295060815593828728, guid: db1777a6aef2a9e4eaafcd65d5a94cf1, type: 3}
