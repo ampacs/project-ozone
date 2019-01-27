@@ -103,6 +103,7 @@ public class EnemyController : MonoBehaviour {
             }
             _waveHazards[i].index = GetRandomIndex(probabilities);
             _waveHazards[i].enemyType = _currentTypeOrder[_waveHazards[i].index];
+            _waveHazards[i].key = _waveHazards[i].enemyType.ToString();
             _waveHazards[i].spawnPosition = GetRandomLocationOnCircle(spawnDistanceFromPlanet.Evaluate(Random.value));
         }
         _waveStartMoment = Time.time;
@@ -123,10 +124,6 @@ public class EnemyController : MonoBehaviour {
         if (_currenHazard < _waveHazards.Length) {
             if (Time.time > _waveStartMoment + _waveTimeBreather) {
                 if (Time.time > _waveStartMoment + _waveTimeBreather + _currenHazard * _waveTimeLength/_numberOfHazards) {
-                    // Debug.Log(_currenHazard + " -> " + _waveHazards[_currenHazard].enemyType + " at " + _waveHazards[_currenHazard].spawnPosition);
-                    Debug.Log(_currenHazard);
-                    Debug.Log(_waveHazards[_currenHazard].index);
-                    Debug.Log(_waveHazards[_currenHazard].spawnPosition);
                     GameObject currentHazard = Instantiate(spawnableHazards[_waveHazards[_currenHazard].index].gameObject, _waveHazards[_currenHazard].spawnPosition, Quaternion.identity);
                     currentHazard.GetComponent<Hazard>().points = HazardWaypointManager.current.GetRandomPath().waypoints;
                     _currenHazard++;

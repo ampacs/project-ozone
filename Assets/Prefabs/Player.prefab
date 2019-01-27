@@ -141,8 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   reference: {fileID: 0}
-  topSpeed: 50
-  accel: 10
+  topSpeed: 75
+  accel: 25
 --- !u!114 &6835033423947561826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: {fileID: 8693539737505505589}
+  damage: 100
   offTime: 3
 --- !u!1 &9198813403482192036
 GameObject:

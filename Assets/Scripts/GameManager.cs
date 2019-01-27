@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour {
     public GameObject planet;
     public GameObject currentPowerup;
 
-    bool[] _focusedFacility;
+    public bool[] focusedFacility;
+    int _year;
     Facility[] _facilities;
 
     public void AddEnergy(float energy) {
@@ -54,7 +55,6 @@ public class GameManager : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        
     }
 
     // Update is called once per frame
@@ -78,21 +78,21 @@ public class GameManager : MonoBehaviour {
                 }
             }
             if (numberNonSupportFacilities < 0) {
-                _focusedFacility = new bool[facilities.Length];
+                focusedFacility = new bool[facilities.Length];
                 _facilities = new Facility[facilities.Length];
                 numberNonSupportFacilities = 0;
                 for (int i = 0; i < facilities.Length; i++) {
                     _facilities[i] = facilities[i].GetComponent<Facility>();
                     if (_facilities[i].type != Facility.Type.SupportClean && _facilities[i].type != Facility.Type.SupportFossil) {
                         numberNonSupportFacilities++;
-                        _focusedFacility[i] = true;
+                        focusedFacility[i] = true;
                     }
                 }
                 numberFocusedFacilities = numberNonSupportFacilities;
             }
 
             for (int i = 0; i < facilities.Length; i++) {
-                if (_focusedFacility[i])
+                if (focusedFacility[i])
                     _facilities[i].AddEnergy(energy/numberFocusedFacilities);
             }
             energy = 0f;

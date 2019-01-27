@@ -42,7 +42,7 @@ public class Hazard : Damageable {
         }
     }
 
-    void Start() {
+    protected virtual void Start() {
         _rigidbody = GetComponent<Rigidbody>();
         _maxSpeedSqr = maxSpeed * maxSpeed;
     }
@@ -53,7 +53,7 @@ public class Hazard : Damageable {
                 transform.rotation = Quaternion.LookRotation(_rigidbody.velocity);
                 break;
             case FacingMode.Planet:
-                transform.rotation = Quaternion.LookRotation(GameManager.current.planet.transform.position - transform.position);
+                transform.rotation = Quaternion.LookRotation(PlanetController.current.transform.position - transform.position);
                 break;
             case FacingMode.Player:
                 transform.rotation = Quaternion.LookRotation(PlayerMovementController.current.transform.position - transform.position);

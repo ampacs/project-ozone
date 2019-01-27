@@ -20,7 +20,7 @@ public class Facility : Damageable {
 
     public GameObject upgrade;
 
-    float _lastUpgradeSpawnMoment;
+    public float lastUpgradeSpawnMoment;
     float _destructionMoment = -100f;
 
     public override void Kill() {
@@ -47,16 +47,16 @@ public class Facility : Damageable {
     }
 
     void ManageSupportFossilFacility () {
-        if (Time.fixedTime > _lastUpgradeSpawnMoment + upgradeSpawnPeriod) {
-            _lastUpgradeSpawnMoment = Time.fixedTime;
+        if (Time.fixedTime > lastUpgradeSpawnMoment + upgradeSpawnPeriod) {
+            lastUpgradeSpawnMoment = Time.fixedTime;
             SpawnUpgrade(transform.position, transform.rotation, null, transform.forward * upgradeTargetDistance);
             PlanetController.current.Damage(damageToHome);
         }
     }
 
     void ManageSupportCleanFacility () {
-        if (Time.fixedTime > _lastUpgradeSpawnMoment + upgradeSpawnPeriod) {
-            _lastUpgradeSpawnMoment = Time.fixedTime;
+        if (Time.fixedTime > lastUpgradeSpawnMoment + upgradeSpawnPeriod) {
+            lastUpgradeSpawnMoment = Time.fixedTime;
             SpawnUpgrade(transform.position, transform.rotation, null, transform.forward * upgradeTargetDistance);
         }
     }

@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnableHazards:
   - {fileID: 6682538592380099226, guid: 3b3201a42d3445f4bb8c246c9428d890, type: 3}
+  - {fileID: 5558714766358547699, guid: 4d766411ea0180049b628a9711cc6a9e, type: 3}
   spawnDistanceFromPlanet:
     serializedVersion: 2
     m_Curve:
@@ -283,7 +284,7 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 30
+        value: 5
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -292,7 +293,7 @@ MonoBehaviour:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 30
+        value: 5
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -307,7 +308,7 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 15
+        value: 5
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -316,7 +317,7 @@ MonoBehaviour:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 15
+        value: 5
         inSlope: 0
         outSlope: 0
         tangentMode: 0

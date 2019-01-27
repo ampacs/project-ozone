@@ -10,7 +10,7 @@ public class HazardWaypointManager : MonoBehaviour {
 
     public Path GetExitPath (Vector3 location) {
         Path path = new Path();
-        path.waypoints = new Transform[1];
+        path.waypoints = new Transform[] {new GameObject().transform};
         path.waypoints[0].position = (location - PlanetController.current.transform.position).normalized * 10f;
         return path;
     }
