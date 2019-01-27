@@ -3,17 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class TriangleExplosion : MonoBehaviour
-{
+public class TriangleExplosion : MonoBehaviour {
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            StartCoroutine(SplitMesh(true));
-        }
+    public static TriangleExplosion current;
+
+    void Awake() {
+        if (current == null)
+            current = this;
+        else if (current != this)
+            Destroy(gameObject);
     }
 
+    public void Explode() {
+            StartCoroutine(SplitMesh(true));
+    }
 
     public IEnumerator SplitMesh(bool destroy)
     {
@@ -85,6 +88,7 @@ public class TriangleExplosion : MonoBehaviour
                 GO.AddComponent<BoxCollider>();
                 Vector3 explosionPos = new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(0f, 0.5f), transform.position.z + Random.Range(-0.5f, 0.5f));
                 GO.AddComponent<Rigidbody>().AddExplosionForce(Random.Range(50, 150), explosionPos, 5);
+                GO.GetComponent<Rigidbody>().useGravity = false;
                 Destroy(GO, 5 + Random.Range(0.0f, 5.0f));
             }
         }

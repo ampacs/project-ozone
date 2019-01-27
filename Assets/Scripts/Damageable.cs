@@ -21,6 +21,7 @@ public class Damageable : BaseObject {
     }
 
     protected virtual void OnCollisionEnter(Collision collisionInfo) {
+        if (collisionInfo.collider.gameObject.transform.parent == null) return;
         Damageable damageable = collisionInfo.collider.gameObject.transform.parent.GetComponent<Damageable>();
         if (damageable != null)
             damageable.Damage(damage);

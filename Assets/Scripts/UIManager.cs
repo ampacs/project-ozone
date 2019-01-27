@@ -108,7 +108,7 @@ public class UIManager : MonoBehaviour {
             year.text = currentYear.ToString();
         }
 
-        for (int i = 0; i < facilities.Length; i++) {
+        for (int i = 0; i < GameManager.current.facilities.Length; i++) {
             Facility facility = GameManager.current.facilities[i].GetComponent<Facility>();
             if (facility.regenerating) {
                 facilities[i].SetState(FacilityUI.State.inactive);

@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour {
     public GameObject planet;
     public GameObject currentPowerup;
 
+
+    public AudioSource titleTheme;
+    public AudioSource gameTheme;
     public bool[] focusedFacility;
     int _year;
     Facility[] _facilities;
@@ -31,6 +34,51 @@ public class GameManager : MonoBehaviour {
         GameObject powerupTarget = GameObject.FindWithTag("PowerupTarget");
         currentPowerup.transform.parent = powerupTarget.transform;
         currentPowerup.transform.position = powerupTarget.transform.position;
+    }
+
+    public void AddFacility(GameObject facility) {
+        for (int i = 0; i < facilities.Length; i++) {
+            if (facilities[i] == null) {
+                facilities[i] = facility;
+                return;
+            }
+        }
+    }
+
+    public void RemoveLastFacility() {
+        for (int i = facilities.Length - 1; i >= 0; i--) {
+            if (facilities[i] != null) {
+                FacilityTypeManager.current.RemoveFacility(facilities[i].GetComponent<Facility>().type);
+                facilities[i] = null;
+                return;
+            }
+        }
+    }
+
+    public int GetNumberOfAddedFacilities() {
+        int n = 0;
+        for (int i = 0; i < facilities.Length; i++) {
+            if (facilities[i] != null) {
+                n++;
+            }
+        }
+        return n;
+    }
+
+    public int GetNumberOfSupportFacilities() {
+        int n = 0;
+        for (int i = 0; i < facilities.Length; i++) {
+            if (facilities[i] == null)
+                continue;
+            switch (facilities[i].GetComponent<Facility>().type) {
+                case Facility.Type.SupportClean:
+                case Facility.Type.SupportFossil:
+                    n++;
+                    break;
+                default: break;
+            }
+        }
+        return n;
     }
 
     public void RemovePowerup() {
@@ -112,6 +160,35 @@ public class GameManager : MonoBehaviour {
             for (int i = 0; i < focusedFacility.Length; i++) {
                 if (focusedFacility[i])
                     numberFocusedFacilities++;
+            }
+            if (titleTheme.isPlaying) {
+                titleTheme.Stop();
+            }
+            if (!gameTheme.isPlaying) {
+                gameTheme.Play();
+            }
+        } else if (SceneManager.GetActiveScene().name == "Main Menu") {
+            if (Input.GetButtonDown("Cancel")) {
+                RemoveLastFacility();
+            }
+            if ((Input.GetButtonDown("Jump") || Input.GetButtonDown("Submit")) && GetNumberOfAddedFacilities() == 4) {
+                GameManager.current.LoadScene("Game");
+            }
+            if (!titleTheme.isPlaying) {
+                titleTheme.Play();
+            }
+            if (gameTheme.isPlaying) {
+                gameTheme.Stop();
+            }
+        } else if (SceneManager.GetActiveScene().name == "Title Menu") {
+            if (Input.GetButtonDown("Jump") || Input.GetButtonDown("Submit")) {
+                GameManager.current.LoadScene("Main Menu");
+            }
+            if (!titleTheme.isPlaying) {
+                titleTheme.Play();
+            }
+            if (gameTheme.isPlaying) {
+                gameTheme.Stop();
             }
         }
     }

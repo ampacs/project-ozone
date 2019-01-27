@@ -10,6 +10,7 @@ TagManager:
   - PowerupTarget
   - Hazard
   - Facility
+  - FacilityTypeManager
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Powerup
   - Planet
   - Facility
-  - 
+  - Particle
   - 
   - 
   - 

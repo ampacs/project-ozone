@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 8438127810768995792}
   - component: {fileID: 8438127810768995822}
   - component: {fileID: 8438127810768995793}
+  - component: {fileID: 6778538690656845843}
   m_Layer: 0
   m_Name: Planet Mesh
   m_TagString: Untagged
@@ -242,6 +243,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6778538690656845843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8438127810768995795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eae0a8299d13fed4ea6f4dda36161b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8438127810881353417
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +343,7 @@ MonoBehaviour:
   health: 2000
   maxHealth: 2000
   destructionTime: 0
+  isAlive: 1
   regenerationRate: 0.25
   healthyTerrainColor: {r: 0.08627451, g: 0.5529412, b: 0.20392157, a: 1}
   deadTerrainColor: {r: 0.6509434, g: 0.5275678, b: 0.07062123, a: 1}
