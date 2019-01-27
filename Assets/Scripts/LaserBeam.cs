@@ -32,5 +32,14 @@ public class LaserBeam : MonoBehaviour {
         //lineRenderer.SetPosition(0, transform.position);
         if (Time.time > _shootMoment + lifetime)
             lineRenderer.enabled = false;
+        else {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.forward, out hit)) {
+                if (hit.collider) {
+                    lineRenderer.SetPosition(lineRenderer.positionCount - 1, transform.InverseTransformPoint(hit.point));
+                    Damageable damageable = hit.collider.gameObject.transform.parent.GetComponent<Damageable>();
+                }
+            } else lineRenderer.SetPosition(lineRenderer.positionCount - 1, transform.InverseTransformPoint(transform.forward) * 50);
+        } 
     }
 }

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6966799380122556698}
+  - component: {fileID: 3699477342529150556}
   - component: {fileID: 725865010306677795}
   m_Layer: 14
   m_Name: Facility_Attack
@@ -29,9 +30,26 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2296368142442277628}
+  - {fileID: 673348530512636234}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &3699477342529150556
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115910894708182491}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &725865010306677795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46,17 +64,65 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Laser Beam
   description: 
+  damage: 100
   health: 100
   maxHealth: 100
   destructionTime: 0
   type: 0
   activateUpgradeOnSpawn: 0
+  damageToHome: 0
   energy: 0
   maxEnergy: 100
+  regenerating: 0
   regenerationTime: 10
   upgradeSpawnPeriod: -1
   upgradeTargetDistance: 1.5
   upgrade: {fileID: 1123403793075456501, guid: 8fdd5b5606837b4498304a31244a77ef, type: 3}
+  lastUpgradeSpawnMoment: 0
+--- !u!1 &7170439999096793434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 673348530512636234}
+  - component: {fileID: 9082362998537366408}
+  m_Layer: 14
+  m_Name: Sphere Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &673348530512636234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7170439999096793434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6966799380122556698}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &9082362998537366408
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7170439999096793434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11
+  m_Center: {x: 0, y: 0, z: 0.02}
 --- !u!1001 &2296368142442410108
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,6 +19,22 @@ public class HazardWaypointManager : MonoBehaviour {
         return paths[Random.Range(0, paths.Length)];
     }
 
+    public Path GetRandomLoopablePath () {
+        Path path;
+        do {
+            path = paths[Random.Range(0, paths.Length)];
+        } while (!path.loopable);
+        return path;
+    }
+
+    public Path GetRandomNonLoopablePath () {
+        Path path;
+        do {
+            path = paths[Random.Range(0, paths.Length)];
+        } while (path.loopable);
+        return path;
+    }
+
     void Awake() {
         if (current == null)
             current = this;

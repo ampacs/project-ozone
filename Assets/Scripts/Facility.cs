@@ -29,6 +29,8 @@ public class Facility : Damageable {
     }
 
     public void AddEnergy (float energy) {
+        if (regenerating)
+            return;
         this.energy += energy;
         if (this.energy > maxEnergy) {
             this.energy -= maxEnergy;

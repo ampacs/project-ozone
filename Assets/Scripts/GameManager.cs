@@ -93,12 +93,25 @@ public class GameManager : MonoBehaviour {
 
             for (int i = 0; i < facilities.Length; i++) {
                 if (focusedFacility[i])
-                    _facilities[i].AddEnergy(energy/numberFocusedFacilities);
+                    _facilities[i].AddEnergy(energy/(float)numberFocusedFacilities);
             }
             energy = 0f;
 
             if (Input.GetButtonDown("Jump") && currentPowerup != null) {
                 currentPowerup.GetComponent<Upgrade>().Use();
+            }
+
+            if (Input.GetButtonDown("Fire1") && !facilities[0].GetComponent<Facility>().regenerating && facilities[0].GetComponent<Facility>().type != Facility.Type.SupportClean && facilities[0].GetComponent<Facility>().type != Facility.Type.SupportFossil)
+                focusedFacility[0] = !focusedFacility[0];
+            if (Input.GetButtonDown("Fire2") && !facilities[1].GetComponent<Facility>().regenerating && facilities[1].GetComponent<Facility>().type != Facility.Type.SupportClean && facilities[1].GetComponent<Facility>().type != Facility.Type.SupportFossil)
+                focusedFacility[1] = !focusedFacility[1];
+            if (Input.GetButtonDown("Fire3") && !facilities[2].GetComponent<Facility>().regenerating && facilities[2].GetComponent<Facility>().type != Facility.Type.SupportClean && facilities[2].GetComponent<Facility>().type != Facility.Type.SupportFossil)
+                focusedFacility[2] = !focusedFacility[2];
+            
+            numberFocusedFacilities = 0;
+            for (int i = 0; i < focusedFacility.Length; i++) {
+                if (focusedFacility[i])
+                    numberFocusedFacilities++;
             }
         }
     }

@@ -88,9 +88,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1727888820468673440}
-  - component: {fileID: 5953570586819247805}
+  - component: {fileID: 5837926904349540549}
   m_Layer: 10
-  m_Name: Sphere Collider
+  m_Name: Capsule Collider
   m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,8 +110,8 @@ Transform:
   m_Father: {fileID: 5558714766358547698}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &5953570586819247805
-SphereCollider:
+--- !u!136 &5837926904349540549
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -120,9 +120,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
   m_Radius: 0.12
-  m_Center: {x: 0, y: 0, z: 0.05}
+  m_Height: 0.4
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0.1}
 --- !u!1 &6178696653230187548
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6178696653230187548}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -297,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b4c43311d08b7469cec072bcc54835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 0.33333334
+  lifetime: 0.25
 --- !u!1001 &7952533943494073732
 PrefabInstance:
   m_ObjectHideFlags: 0

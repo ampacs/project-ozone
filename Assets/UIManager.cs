@@ -112,10 +112,11 @@ public class UIManager : MonoBehaviour {
             Facility facility = GameManager.current.facilities[i].GetComponent<Facility>();
             if (facility.regenerating) {
                 facilities[i].SetState(FacilityUI.State.inactive);
-                facilities[i].SetResourceAmount(facility.health/facility.maxHealth);
+                // facilities[i].SetResourceAmount(facility.health/facility.maxHealth);
             } else if (!GameManager.current.focusedFacility[i] && facility.type != Facility.Type.SupportClean && facility.type != Facility.Type.SupportFossil) {
                 facilities[i].SetState(FacilityUI.State.onHold);
             } else if (facility.type == Facility.Type.SupportClean || facility.type == Facility.Type.SupportFossil) {
+                facilities[i].SetState(FacilityUI.State.active);
                 facilities[i].SetResourceAmount((Time.time - facility.lastUpgradeSpawnMoment)/facility.upgradeSpawnPeriod, 50f);
             } else {
                 facilities[i].SetState(FacilityUI.State.active);
