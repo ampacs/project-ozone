@@ -327,8 +327,8 @@ MonoBehaviour:
   name: Earth
   description: 
   damage: 100
-  health: 1000
-  maxHealth: 1000
+  health: 2000
+  maxHealth: 2000
   destructionTime: 0
   regenerationRate: 0.25
   healthyTerrainColor: {r: 0.08627451, g: 0.5529412, b: 0.20392157, a: 1}
