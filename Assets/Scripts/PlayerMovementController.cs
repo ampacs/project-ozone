@@ -32,7 +32,7 @@ public class PlayerMovementController : MonoBehaviour {
         Vector3 direction = -Vector3.Cross(relativePosition, Vector3.up);
         // Vector3 relativeInputAxis = Vector3.Scale(inputAxis, new Vector3(Vector3.Dot(direction, Vector3.right), 0f, Vector3.Dot(direction, Vector3.forward)));
         float relativeInputAxis = Vector3.Dot(inputAxis, direction);
-        relativeInputAxis = relativeInputAxis > 0.866025403784f ? 1 : (relativeInputAxis < -0.866025403784f ? -1 : relativeInputAxis);  // 0.866025403784 ~ 30 degrees of leniency
+        relativeInputAxis = relativeInputAxis > 0.5f ? 1 : (relativeInputAxis < -0.5f ? -1 : relativeInputAxis);  // 0.866025403784 ~ 30 degrees of leniency
         Debug.DrawRay(transform.position, direction);
 
         _currentSpeed = Mathf.Lerp(_currentSpeed, relativeInputAxis*topSpeed, accel * Time.fixedDeltaTime);
