@@ -267,6 +267,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2440280906984025891, guid: 3a31c848b6326c6429ed5ad8ef47f508,
+        type: 3}
+      propertyPath: m_Name
+      value: Shield Mesh Trigger
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a31c848b6326c6429ed5ad8ef47f508, type: 3}
 --- !u!1 &8693539737505505589 stripped

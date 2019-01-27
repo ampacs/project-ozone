@@ -202,7 +202,7 @@ MonoBehaviour:
   type: 1
   level: 1
   maxLevel: 3
-  damage: 0
+  damage: 100
   useTime: 3
   lifetime: 5
   startPosition: {x: 0, y: 0, z: 0}
@@ -232,6 +232,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  baseMeshSize: 0.4
   collectionCollider: {fileID: 6986831933063152256}
   destructionCollider:
   - {fileID: 6986831933428086784}
@@ -499,7 +500,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: 67e43edd3edacb1498817308d783b493, type: 3}
+  - {fileID: 2100000, guid: 6b109c27430494b488d896df91d864b2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

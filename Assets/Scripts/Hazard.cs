@@ -37,7 +37,7 @@ public class Hazard : Damageable {
         } else {
             health -= damage;
         }
-        if (health < 0) {
+        if (health <= 0) {
             Kill();
         }
     }
@@ -62,27 +62,12 @@ public class Hazard : Damageable {
     }
 
     protected virtual void FixedUpdate() {
-        Debug.Log(_rigidbody);
         if ((transform.position - points[_currentPoint].position).sqrMagnitude < 0.25f && _currentPoint + 1 < points.Length) {
             _currentPoint++;
         }
         _rigidbody.AddForce(points[_currentPoint].position - transform.position, ForceMode.Acceleration);
         if (_rigidbody.velocity.sqrMagnitude > _maxSpeedSqr) {
             _rigidbody.velocity = _rigidbody.velocity.normalized * maxSpeed;
-        }
-    }
-
-    protected override void OnCollisionEnter(Collision collisionInfo) {
-        base.OnCollisionEnter(collisionInfo);
-        if (collisionInfo.collider.transform.tag == "Planet" || collisionInfo.collider.transform.tag == "Facility") {
-            Kill();
-        }
-    }
-
-    protected override void OnTriggerEnter(Collider other) {
-        base.OnTriggerEnter(other);
-        if (other.transform.tag == "Planet" || other.transform.tag == "Facility") {
-            Kill();
         }
     }
 }

@@ -35,7 +35,7 @@ public class UpgradeShield : Upgrade {
                 }
             }
         } else if (other.gameObject.tag == "Hazard") {
-            other.GetComponent<Damageable>().Damage(damage);
+            other.gameObject.transform.parent.GetComponent<Hazard>().Damage(damage);
         }
     }
     

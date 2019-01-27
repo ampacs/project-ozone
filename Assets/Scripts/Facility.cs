@@ -5,11 +5,11 @@ using UnityEngine;
 public class Facility : Damageable {
 
     public enum Type {
-        Offensive, Defensive, Support
+        Offensive, Defensive, SupportClean, SupportFossil
     }
     public Type type;
-
     public bool activateUpgradeOnSpawn;
+    public int damageToHome;
     public float energy;
     public float maxEnergy;
     public bool regenerating;
@@ -46,7 +46,15 @@ public class Facility : Damageable {
 
     }
 
-    void ManageSupportFacility () {
+    void ManageSupportFossilFacility () {
+        if (Time.fixedTime > _lastUpgradeSpawnMoment + upgradeSpawnPeriod) {
+            _lastUpgradeSpawnMoment = Time.fixedTime;
+            SpawnUpgrade(transform.position, transform.rotation, null, transform.forward * upgradeTargetDistance);
+            PlanetController.current.Damage(damageToHome);
+        }
+    }
+
+    void ManageSupportCleanFacility () {
         if (Time.fixedTime > _lastUpgradeSpawnMoment + upgradeSpawnPeriod) {
             _lastUpgradeSpawnMoment = Time.fixedTime;
             SpawnUpgrade(transform.position, transform.rotation, null, transform.forward * upgradeTargetDistance);
@@ -64,8 +72,11 @@ public class Facility : Damageable {
             case Type.Offensive:
                 //ManageOffensiveFacility();
                 break;
-            case Type.Support:
-                ManageSupportFacility();
+            case Type.SupportClean:
+                ManageSupportCleanFacility();
+                break;
+            case Type.SupportFossil:
+                ManageSupportFossilFacility();
                 break;
         }
     }

@@ -10,7 +10,7 @@ public class UpgradeLaser : Upgrade {
     public override void Use() {
         if (used) return;
         destructionCollider.SetActive(true);
-        Destroy(gameObject, useTime);
+        Destroy(gameObject, useTime * level);
         base.Use();
     }
 
@@ -22,12 +22,20 @@ public class UpgradeLaser : Upgrade {
     }
 
     void OnTriggerEnter(Collider other) {
-        if (!collected && GameManager.current.currentPowerup == null) {
-            collected = true;
-            GameManager.current.AddPowerup(gameObject);
-            collectionCollider.SetActive(false);
+        if (!collected) {
+            if (GameManager.current.currentPowerup == null) {
+                collected = true;
+                GameManager.current.AddPowerup(gameObject);
+                collectionCollider.SetActive(false);
+            } else if (GameManager.current.currentPowerup.GetComponent<Upgrade>().type == Upgrade.Type.Laser) {
+                Upgrade currentPowerup = GameManager.current.currentPowerup.GetComponent<Upgrade>();
+                if (currentPowerup.level < currentPowerup.maxLevel) {
+                    currentPowerup.level++;
+                    Destroy(gameObject);
+                }
+            }
         } else if (other.gameObject.tag == "Hazard") {
-            other.GetComponent<Damageable>().Damage(damage);
+            other.gameObject.transform.parent.GetComponent<Hazard>().Damage(damage);
         }
     }
 }

@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour {
                 numberNonSupportFacilities = 0;
                 for (int i = 0; i < facilities.Length; i++) {
                     _facilities[i] = facilities[i].GetComponent<Facility>();
-                    if (_facilities[i].type != Facility.Type.Support) {
+                    if (_facilities[i].type != Facility.Type.SupportClean && _facilities[i].type != Facility.Type.SupportFossil) {
                         numberNonSupportFacilities++;
                         _focusedFacility[i] = true;
                     }

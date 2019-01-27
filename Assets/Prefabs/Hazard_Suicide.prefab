@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6682538592380099228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0, z: 13}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3517462036339112984}
@@ -67,7 +67,7 @@ MonoBehaviour:
   damage: 100
   health: 100
   maxHealth: 100
-  destructionTime: 2
+  destructionTime: 0.1
   type: 0
   shield: 0
   maxShield: 0
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 6682538593426818748}
   m_Layer: 10
   m_Name: Sphere Collider
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

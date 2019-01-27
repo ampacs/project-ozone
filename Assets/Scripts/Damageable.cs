@@ -21,14 +21,14 @@ public class Damageable : BaseObject {
     }
 
     protected virtual void OnCollisionEnter(Collision collisionInfo) {
-        Damageable damageable = collisionInfo.collider.gameObject.GetComponent<Damageable>();
+        Damageable damageable = collisionInfo.collider.gameObject.transform.parent.GetComponent<Damageable>();
         if (damageable != null)
-            Damage(damageable.damage);
+            damageable.Damage(damage);
     }
 
     protected virtual void OnTriggerEnter(Collider other) {
         Damageable damageable = other.gameObject.GetComponent<Damageable>();
         if (damageable != null)
-            Damage(damageable.damage);
+            damageable.Damage(damage);
     }
 }
