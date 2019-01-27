@@ -9,7 +9,7 @@ public class Path : MonoBehaviour {
     public Transform[] waypoints;
 
     public int GetNextIndex(int index) {
-        if (++index > waypoints.Length) {
+        if (++index >= waypoints.Length) {
             if (loopable)
                 return 0;
             else return index--;
