@@ -125,7 +125,15 @@ public class EnemyController : MonoBehaviour {
             if (Time.time > _waveStartMoment + _waveTimeBreather) {
                 if (Time.time > _waveStartMoment + _waveTimeBreather + _currenHazard * _waveTimeLength/_numberOfHazards) {
                     GameObject currentHazard = Instantiate(spawnableHazards[_waveHazards[_currenHazard].index].gameObject, _waveHazards[_currenHazard].spawnPosition, Quaternion.identity);
-                    currentHazard.GetComponent<Hazard>().points = HazardWaypointManager.current.GetRandomPath().waypoints;
+                    switch (currentHazard.GetComponent<Hazard>().type) {
+                        case Hazard.Type.Shield:
+                        case Hazard.Type.Laser: 
+                            currentHazard.GetComponent<Hazard>().path = HazardWaypointManager.current.GetRandomLoopablePath();
+                            break;
+                        case Hazard.Type.Suicide:
+                            currentHazard.GetComponent<Hazard>().path = HazardWaypointManager.current.GetRandomNonLoopablePath();
+                            break;
+                    }
                     _currenHazard++;
                 }
             }
