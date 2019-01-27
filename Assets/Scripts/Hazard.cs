@@ -18,7 +18,7 @@ public class Hazard : Damageable {
     public int maxShield;
     public float acceleration;
     public float maxSpeed;
-    public Transform[] points;
+    public Path path;
     public FacingMode mode;
 
     protected bool _faceMovementDirection;
@@ -62,10 +62,10 @@ public class Hazard : Damageable {
     }
 
     protected virtual void FixedUpdate() {
-        if ((transform.position - points[_currentPoint].position).sqrMagnitude < 0.25f && _currentPoint + 1 < points.Length) {
-            _currentPoint++;
+        if ((transform.position - path.waypoints[_currentPoint].position).sqrMagnitude < 0.25f) {
+            _currentPoint = path.GetNextIndex(_currentPoint);
         }
-        _rigidbody.AddForce(points[_currentPoint].position - transform.position, ForceMode.Acceleration);
+        _rigidbody.AddForce(path.waypoints[_currentPoint].position - transform.position, ForceMode.Acceleration);
         if (_rigidbody.velocity.sqrMagnitude > _maxSpeedSqr) {
             _rigidbody.velocity = _rigidbody.velocity.normalized * maxSpeed;
         }
