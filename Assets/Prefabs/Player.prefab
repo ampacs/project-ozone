@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shield: {fileID: 8693539737505505589}
   damage: 100
-  offTime: 3
+  offTime: 9
 --- !u!1 &9198813403482192036
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,11 +294,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1701633446351926158}
     m_Modifications:
-    - target: {fileID: 5621044246242811892, guid: 2497f049cb8067944b6bd64ad7d37b69,
-        type: 3}
-      propertyPath: m_Name
-      value: Satellite
-      objectReference: {fileID: 0}
     - target: {fileID: 5621044246242811895, guid: 2497f049cb8067944b6bd64ad7d37b69,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -353,6 +348,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5621044246242811892, guid: 2497f049cb8067944b6bd64ad7d37b69,
+        type: 3}
+      propertyPath: m_Name
+      value: Satellite
       objectReference: {fileID: 0}
     - target: {fileID: 5621044245568464978, guid: 2497f049cb8067944b6bd64ad7d37b69,
         type: 3}

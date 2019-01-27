@@ -73,12 +73,12 @@ MonoBehaviour:
   shield: 0
   maxShield: 0
   acceleration: 5
-  maxSpeed: 2
+  maxSpeed: 1.5
   points: []
   mode: 1
   ammo: 5
   fireRate: 2
-  maximumDistance: 3
+  maximumDistance: 4.5
 --- !u!1 &6021670925220410252
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,11 +306,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5558714766358547698}
     m_Modifications:
-    - target: {fileID: 7439741633130042443, guid: 198d55645698c104580919776b30751a,
-        type: 3}
-      propertyPath: m_Name
-      value: LaserE
-      objectReference: {fileID: 0}
     - target: {fileID: 2652993340447656136, guid: 198d55645698c104580919776b30751a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -380,6 +375,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7439741633130042443, guid: 198d55645698c104580919776b30751a,
+        type: 3}
+      propertyPath: m_Name
+      value: LaserE
       objectReference: {fileID: 0}
     - target: {fileID: 5495199776603902577, guid: 198d55645698c104580919776b30751a,
         type: 3}
