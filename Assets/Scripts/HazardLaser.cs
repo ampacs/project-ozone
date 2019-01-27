@@ -25,7 +25,7 @@ public class HazardLaser : Hazard {
 
     protected override void Update () {
         if (_currentAmmo == 0) {
-            points = HazardWaypointManager.current.GetExitPath(transform.position).waypoints;
+            path = HazardWaypointManager.current.GetExitPath(transform.position);
             mode = FacingMode.Movement;
             _currentAmmo--;
         } else if (_currentAmmo > 0) {
